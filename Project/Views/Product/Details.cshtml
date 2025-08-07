@@ -1,0 +1,55 @@
+﻿@model Project.Models.Product
+
+@{
+    ViewData["Title"] = "Product Details";
+}
+
+<h2 class="mb-4 text-primary">@ViewData["Title"]</h2>
+
+<div class="card shadow-sm border-0">
+    <div class="card-body">
+        <div class="row mb-3">
+            <div class="col-sm-3 fw-bold">Title:</div>
+            <div class="col-sm-9">@Model.Title</div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-sm-3 fw-bold">Price:</div>
+            <div class="col-sm-9">@Model.Price.ToString("C")</div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-sm-3 fw-bold">Quantity:</div>
+            <div class="col-sm-9">@Model.Quantity</div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-sm-3 fw-bold">Description:</div>
+            <div class="col-sm-9">@Model.Description</div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-sm-3 fw-bold">Category:</div>
+            <div class="col-sm-9">@Model.Category?.Name</div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-sm-3 fw-bold">Image:</div>
+            <div class="col-sm-9">
+                @if (!string.IsNullOrEmpty(Model.ImagePath))
+                {
+                    <img src="@Model.ImagePath" alt="@Model.Title" class="img-thumbnail" style="max-width: 200px;" />
+                }
+                else
+                {
+                    <span class="text-muted">No image available</span>
+                }
+            </div>
+        </div>
+
+        <div class="mt-4">
+            <a asp-action="Edit" asp-route-id="@Model.ProductId" class="btn btn-warning me-2">Edit</a>
+            <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+        </div>
+    </div>
+</div>

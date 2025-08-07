@@ -1,0 +1,13 @@
+﻿@model Project.Models.Product
+
+<h2 class="text-danger">Delete Product</h2>
+
+<p>Are you sure you want to delete <strong>@Model.Title</strong>?</p>
+
+<div class="mb-3">
+    <form asp-action="Delete" method="post">
+        <input type="hidden" asp-for="ProductId" />
+        <button type="submit" class="btn btn-danger">Yes, Delete</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>

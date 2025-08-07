@@ -6,3 +6,6 @@
 /Project/Project.csproj
 /Project/Project.csproj
 /Project/Project.csproj
+.vs/
+bin/
+obj/

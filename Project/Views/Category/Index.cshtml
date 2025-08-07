@@ -1,0 +1,33 @@
+﻿@model List<Project.Models.Category>
+
+@{
+    ViewData["Title"] = "All Categories";
+}
+
+<h2 class="mb-4">All Categories</h2>
+
+<a href="/Category/Create" class="btn btn-success mb-3">➕ Add New Category</a>
+
+<table class="table table-striped table-bordered shadow-sm">
+    <thead class="table-dark">
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th style="width: 200px;">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Description</td>
+                <td>
+                    <a href="/Category/Details/@item.CategoryId" class="btn btn-info btn-sm">Details</a>
+                    <a href="/Category/Edit/@item.CategoryId" class="btn btn-warning btn-sm mx-1">Edit</a>
+                    <a href="/Category/Delete/@item.CategoryId" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
